@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <File name="CorrectInputPath" fileName="logs/correct_input_path.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Filters>
+                <MarkerFilter marker="CORRECT_INPUT_PATH"/>
+            </Filters>
+        </File>
+        <File name="IncorrectInputPath" fileName="logs/incorrect_input_path.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Filters>
+                <MarkerFilter marker="INCORRECT_INPUT_PATH"/>
+            </Filters>
+        </File>
+        <File name="IOException" fileName="logs/IOException.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Filters>
+                <MarkerFilter marker="EXCEP"/>
+            </Filters>
+        </File>
+
+    </appenders>
+
+    <loggers>
+        <root level="info">
+            <appender-ref ref="CorrectInputPath"/>
+            <appender-ref ref="IncorrectInputPath"/>
+            <appender-ref ref="IOException"/>
+        </root>
+    </loggers>
+</configuration>
